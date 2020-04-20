@@ -9,9 +9,11 @@ I, like many ecologists, use remote cameras in the field. Many folks use [camera
 
 ## Motivation
 
-The time-lapse camera model I use in the field can also imprint the temperature on the photo. This is super convenient when studying plant and snow phenology, because these things tend to covary with temperature (among other things). Unfortunately, while the temperature is imprinted in the photograph, that data is not stored in the image's .exif metadata. So, while it's simple to programatically access things like the timestamp or exposure settings of an image, it is not so easy to access temperature information. I decided to put together a convolutional neural network to read the temperature from my time-lapse images. The goal was to be able to input a series of images and produce a table of filenames with associated temperature measurements.
+The time-lapse camera model I use in the field imprints the temperature on an info bar at the bottom of the photo. This is super convenient when studying plant and snow phenology, because these things tend to covary with temperature (among other things). Unfortunately, while the temperature is imprinted in the photograph, that data is not stored in the image's .exif metadata. So, while it's simple to programatically access things like the timestamp or exposure settings of an image, it is not so easy to access temperature information. I decided to put together a convolutional neural network to read the temperature from my time-lapse images. The goal was to be able to input a series of images and produce a table of filenames with associated temperature measurements.
 
-Unfortunately, many of the digit detection algorithms that are currently available run in Python 2.7. I upgraded to Python 3 a while back, and therefore needed a new approach.
+Another motivating factor was that many of the digit detection and classification algorithms currently available run in Python 2.7. I upgraded to Python 3.x a while back, and therefore needed a new approach.
+
+![A sample image](imgs/sampleTLpic.JPG)
 
 ## The application
 
