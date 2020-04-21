@@ -35,16 +35,47 @@ A keras convolutional neural network was trained by stacking two conv2D layers, 
 
 ## Implementation
 
-Clone the repository and navigate to the folder:
+Clone the repository and navigate to the folder.
 
 `$ cd PATH/TO/DIR/`
 
-Then use the train script to train the model:
+The folder should have the following structure:
+
+```bash
+|--tempKeras
+|   |-cropEg/
+|   |   |-WSCT0014.JPG
+|   |-imgs/
+|   |   |-conv2D_accuracy.jpeg
+|   |   |-...
+|   |-README.md
+|   |-temp_conv2d_predict.py
+|   |-temp_conv2d_train.py
+|   |-temp_crop.py
+|   |-test.zip
+|   |   |-Test00000.JPG
+|   |   |-...
+|   |-train.zip
+|   |   |-Train00000.JPG
+|   |   |-...
+|   |   |-Train00362.JPG
+|   |   |-y.csv
+```
+
+Unzip the test.zip and train.zip folders with whatever method you prefer. They contain images of temperature stamps used to train the model. If you want, replace these folders with your own training and testing imagery. Be sure to also include a y.csv designed as appropriate.
+
+Use the `temp_conv2d_train.py` function to train the model. This function requires one argument, the path to the folder above. If you followed the first step (`$ cd...`), you're already at that folder and can use a period in place of a path. 
 
 `$ python3 temp_conv2d_train.py .`
 
-Generate predictions from the trained model using the predcit script with the following syntax:
+Generate predictions from the trained model using the `conv2d_predict.py` function. This requires two arguments: The name of the folder containing images of temperature stamps, and the folder containing the model saved in temp_conv2d_train.py.
 
 `$ python3 temp_conv2d_predict.py test .`
 
 A .csv predicted temperature file will be generated and saved in the image directory.
+
+### A note on ROI's
+
+If needed, imagery can be cropped using the `temp_crop.py` function, which stores cropped and resized images in a subdirectory called tempImg. The arguments are (in order): the folder containing imagery to be cropped, the xmin, xmax, ymin, and ymax coordinates of the region's bounding box (using matrix-style indexing), and the desired output width and height. For the following example, the imagery in the cropEx directory will be cropped to the region spanning 1090 and 1400 pixels from the left side of the image and between 2250 and 2340 pixels from the top of the image. The cropped imagery will be resized to have final dimensions 120 pixels wide by 30 pixels tall.
+
+`$ python3 temp_crop.py cropEg 1090 1400 2250 2340 120 30`
