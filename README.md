@@ -37,7 +37,7 @@ A keras convolutional neural network was trained by stacking two conv2D layers, 
 
 Clone the repository and navigate to the folder.
 
-`$ cd PATH/TO/DIR/`
+`$ cd PATH/TO/tempKeras/`
 
 The folder should have the following structure:
 
