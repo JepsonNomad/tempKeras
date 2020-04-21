@@ -39,30 +39,30 @@ Clone the repository and navigate to the folder.
 
 `$ cd PATH/TO/tempKeras/`
 
+Unzip the test.zip and train.zip folders with whatever method you prefer. They contain images of temperature stamps used to train the model. If you want, replace these folders with your own training and testing imagery. Be sure to also include a y.csv designed as appropriate.
+
 The folder should have the following structure:
 
 ```bash
-|--tempKeras
-|   |-cropEg/
-|   |   |-WSCT0014.JPG
-|   |-imgs/
-|   |   |-conv2D_accuracy.jpeg
-|   |   |-...
-|   |-README.md
-|   |-temp_conv2d_predict.py
-|   |-temp_conv2d_train.py
-|   |-temp_crop.py
-|   |-test.zip
-|   |   |-Test00000.JPG
-|   |   |-...
-|   |-train.zip
-|   |   |-Train00000.JPG
-|   |   |-...
-|   |   |-Train00362.JPG
-|   |   |-y.csv
+|--tempKeras/
+|   |--cropEg/
+|   |   |--WSCT0014.JPG
+|   |--imgs/
+|   |   |--conv2D_accuracy.jpeg
+|   |   |--...
+|   |--README.md
+|   |--temp_conv2d_predict.py
+|   |--temp_conv2d_train.py
+|   |--temp_crop.py
+|   |--test/
+|   |   |--Test00000.JPG
+|   |   |--...
+|   |--train/
+|   |   |--Train00000.JPG
+|   |   |--...
+|   |   |--Train00362.JPG
+|   |   |--y.csv
 ```
-
-Unzip the test.zip and train.zip folders with whatever method you prefer. They contain images of temperature stamps used to train the model. If you want, replace these folders with your own training and testing imagery. Be sure to also include a y.csv designed as appropriate.
 
 Use the `temp_conv2d_train.py` function to train the model. This function requires one argument, the path to the folder above. If you followed the first step (`$ cd...`), you're already at that folder and can use a period in place of a path. 
 
